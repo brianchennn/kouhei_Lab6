@@ -138,6 +138,5 @@ ostream & operator<<(ostream & out, const Vector & v)
 				out << v.arr[i];
 	}
 		out << ")";
-
 	return out;
 }

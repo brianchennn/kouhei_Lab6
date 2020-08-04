@@ -1,5 +1,5 @@
 #include "Vector.h"
-#include <math.h>
+#include <cmath>
 
 Vector::Vector()
 {
@@ -37,17 +37,13 @@ void Vector::AddNumbertoArr(float number)
 int Vector::getSize()
 {
 	//TODO: Return the array size
-	
 	return arrSize; //Remove this line
 }
-
 float Vector::length()
 {
 	//TODO: Compute the length of vector and return it
 	int n = 0;
-	for (int i = 0; i < arrSize; i++) {
-		n += (arr[i] * arr[i]);
-	}
+	for (int i = 0; i < arrSize; i++)n += (arr[i] * arr[i]);
 	n = sqrt(n);
 	return n; //Remove this line
 }
@@ -59,9 +55,7 @@ Vector Vector::normalize()
 	int n;
 	float l = length();
 	for (int i = 0; i < arrSize; i++) {
-		
 		arr[i] = arr[i] / l;
-		cout<<arr[i]<<endl;
 		V.arr[i] = arr[i];
 	}
 	return V;
@@ -75,9 +69,7 @@ Vector  Vector::operator+(const Vector &v)
 	//Return the result of v1 + v2
 	
 	Vector V(v.arrSize);
-	for (int i = 0; i < arrSize; i++) {
-		V.arr[i] = arr[i] + v.arr[i];
-	}
+	for (int i = 0; i < arrSize; i++)V.arr[i] = arr[i] + v.arr[i];
 	return V;
 	//return Vector(); //Remove this line
 }
@@ -88,8 +80,7 @@ Vector  Vector::operator=(const Vector &v)
 	//Then we can use more intuitively way to assign out vector (like v1 = v2).
 	Vector V(v.arrSize);
 	arrSize = v.arrSize;
-	for (int i = 0; i < v.arrSize; i++) {
-		
+	for (int i = 0; i < v.arrSize; i++){
 		V.arr[i] = v.arr[i];
 		arr[i] = v.arr[i];
 	}
@@ -103,9 +94,8 @@ Vector  Vector::operator-(const Vector &v)
 	//Then we can use more intuitively way to subtract out vector (like v1 - v2).
 	//Return the result of v1 - v2
 	Vector V(v.arrSize);
-	for (int i = 0; i < arrSize; i++) {
-		V.arr[i] = arr[i] - v.arr[i];
-	}
+	for (int i = 0; i < arrSize; i++)V.arr[i] = arr[i] - v.arr[i];
+	
 	return V;
 	//return Vector(); //Remove this line
 }
@@ -125,7 +115,6 @@ ifstream & operator>>(ifstream & in, Vector &v)
 {
 	//TODO: Overload the >> operator.
 	//Read the input.txt file and store vector in v
-
 	in >> v.arrSize;
 	for (int i = 0; i < v.arrSize; i++) {
 		int n ;
@@ -133,7 +122,6 @@ ifstream & operator>>(ifstream & in, Vector &v)
 		v.AddNumbertoArr(n);
 		v.currentIndex++;
 	}
-
 	return in;
 }
 
@@ -141,7 +129,6 @@ ostream & operator<<(ostream & out, const Vector & v)
 {
 	//TODO: Overload the << operator.
 	//Output the vector v
-	
 	out << "(";
 		for (int i = 0; i < v.arrSize; i++) {
 			if (i < v.arrSize-1) {

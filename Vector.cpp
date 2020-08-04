@@ -87,11 +87,11 @@ Vector  Vector::operator=(const Vector &v)
 	//TODO: Overload the assign operator =.
 	//Then we can use more intuitively way to assign out vector (like v1 = v2).
 	Vector V(v.arrSize);
-	this->arrSize = v.arrSize;
+	arrSize = v.arrSize;
 	for (int i = 0; i < v.arrSize; i++) {
 		
 		V.arr[i] = v.arr[i];
-		this->arr[i] = v.arr[i];
+		arr[i] = v.arr[i];
 	}
 	return V;
 	//return Vector(); //Remove this line
